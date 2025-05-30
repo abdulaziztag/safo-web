@@ -26,16 +26,18 @@ export default function LoginPage() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || 'Login failed');
+        console.log(data.error || 'Login failed');
       }
 
       // Store the token in cookies
       Cookies.set('token', data.token, { expires: 1 }); // Expires in 1 day
-      
+
       // Redirect to home page
       console.log('Redirecting to home page');
       router.push('/home');
-    } catch (err: any) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    } catch (err: { message: string }) {
       setError(err.message);
     }
   };

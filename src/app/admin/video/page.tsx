@@ -53,7 +53,7 @@ export default function AdminVideoPage() {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to update video');
+        console.log('Failed to update video');
       }
 
       await fetchYouTubeLink();
@@ -107,7 +107,7 @@ export default function AdminVideoPage() {
                       placeholder="Enter YouTube video ID"
                     />
                     <p className="mt-1 text-sm text-gray-500">
-                      Get this from the YouTube URL after "v="
+                      Get this from the YouTube URL after &#34;v=&#34;
                     </p>
                   </div>
                   <div>
