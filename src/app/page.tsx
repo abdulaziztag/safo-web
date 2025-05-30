@@ -26,7 +26,7 @@ export default function LoginPage() {
       const data = await response.json();
 
       if (!response.ok) {
-        console.log(data.error || 'Login failed');
+        throw new Error(data.error || 'Login failed');
       }
 
       // Store the token in cookies
